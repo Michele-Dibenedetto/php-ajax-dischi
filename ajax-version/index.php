@@ -14,10 +14,14 @@
 
         <header>
             <img class="logo" src="..\img\logo-small.svg" alt="logo_spotify">
+            <select v-model="filterAuthor" @change="getPoster" name="" id="filter_author">
+                <option value="all">all</option>
+                <option v-for="el in author" :value="el">{{el}}</option>
+            </select>
         </header>
 
         <main>
-            <div v-if="posters.length == 6" v-for="(element, index) in posters" class="card">
+            <div v-for="(element, index) in posters" class="card">
                 <img class="poster" :src="element.poster" alt="">
                 <h2 class="title">{{element.title}}</h2>
                 <p>{{element.author}}</p>
